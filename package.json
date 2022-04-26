@@ -1,0 +1,16 @@
+{
+  "name": "hyperbolic-code-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hi-base32": "^0.5.1",
+    "hypercore-crypto": "^2.3.0"
+  }
+}
