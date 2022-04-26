@@ -1,8 +1,6 @@
 const fs = require('fs');
 const b32 = require('hi-base32');
-require('dotenv').config();
 const crypto = require("hypercore-crypto");
-const keyPair = crypto.keyPair(crypto.data(Buffer.from(process.env.KEY)));
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -11,6 +9,8 @@ const rl = readline.createInterface({
 });
 
 rl.question('Enter a password: ', function (password) {
+  const keyPair = crypto.keyPair(crypto.data(Buffer.from(password)));
+
   console.log('address will be: ', b32.encode(keyPair.publicKey).replace('====','').toLowerCase()+".matic.ml");
   fs.mkdirSync('tunnel/greenlock.d/', { recursive: true }, (err) => {console.log(err)});
   fs.writeFileSync('tunnel/greenlock.d/config.json', JSON.stringify({sites:{subject:b32.encode(keyPair.publicKey).replace('====','').toLowerCase()+".matic.ml"}}));
