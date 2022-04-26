@@ -1,0 +1,11 @@
+const fs = require('fs');
+const b32 = require('hi-base32');
+require('dotenv').config();
+const crypto = require("hypercore-crypto");
+const keyPair = crypto.keyPair(crypto.data(Buffer.from(process.env.KEY)));
+console.log('listening', b32.encode(keyPair.publicKey).replace('====','').toLowerCase()+".matic.ml");
+fs.mkdirSync('tunnel/greenlock.d/', { recursive: true }, (err) => {console.log(err)});
+fs.writeFileSync('tunnel/greenlock.d/config.json', JSON.stringify({sites:{subject:b32.encode(keyPair.publicKey).replace('====','').toLowerCase()+".matic.ml"}}));
+fs.mkdirSync('~/.config/code-server/', { recursive: true }, (err) => {console.log(err)});
+fs.writeFileSync('~/.config/code-server/config.yaml', 'bind-addr: 127.0.0.1:8080\nauth: password\npassword: '+keyPair.secretKey.toString('base64')+'\ncert: false');
+console.log("Password is " + keyPair.secretKey.toString('base64').replace('==',''));
