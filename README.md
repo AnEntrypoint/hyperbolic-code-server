@@ -14,15 +14,17 @@ chmod +x ~/.profile
 source ~/.profile
 nvm install 14
 sudo npm install pm2 -g
+pm2 startup
 
 git clone https://github.com/AnEntrypoint/hyperbolic-code-server.git
 cd hyperbolic-code-server/
 npm install
 node init.js
 cd tunnel
+pm2 start server.js
+pm2 save
 
-
-sudo docker run -it --name code-server -p 127.0.0.1:8080:8080 \
+sudo docker run -it --name code-server --restart unless-stopped -p 127.0.0.1:8080:8080 \
   -v "$HOME/.config:/home/coder/.config" \
   -v "$PWD:/home/coder/project" \
   -u "$(id -u):$(id -g)" \
