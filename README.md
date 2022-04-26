@@ -4,15 +4,7 @@ Instructions so far
 
 ```
 sudo apt update
-sudo apt install docker.io
-
-curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | sh
-sudo curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | sh
-sudo chmod +x ~/.profile
-chmod +x ~/.profile
-
-source ~/.profile
-nvm install 14
+sudo apt install docker.io nodejs npm -y
 sudo npm install pm2 -g
 pm2 startup
 
@@ -30,8 +22,6 @@ sudo docker run -it --name code-server --restart unless-stopped -p 127.0.0.1:808
   -u "$(id -u):$(id -g)" \
   -e "DOCKER_USER=$USER" \
   codercom/code-server:latest
-
-#this next part if you have a low ram environment (add swap 4 gig swap file)
 
 sudo fallocate -l 4G /swapfile
 sudo mkswap /swapfile
