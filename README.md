@@ -31,6 +31,8 @@ sudo docker run -it --name code-server --restart unless-stopped -p 127.0.0.1:808
   -e "DOCKER_USER=$USER" \
   codercom/code-server:latest
 
+#this next part if you have a low ram environment (add swap 4 gig swap file)
+
 sudo fallocate -l 4G /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
