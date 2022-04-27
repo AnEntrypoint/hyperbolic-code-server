@@ -21,7 +21,7 @@ rl.question('Enter a unique identifier: ', function (password) {
     console.log('Password will be: '+keyPair.secretKey.toString('base64').replace('==',''));
     fs.writeFileSync('address', bkey+".matic.ml");
     rl.close();
-  }
+  })
 });
 
 rl.on('close', function () {
