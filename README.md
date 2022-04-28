@@ -16,6 +16,7 @@ cd tunnel
 pm2 start server.js
 pm2 save
 
+cd ~/
 sudo docker run -it --name code-server --restart unless-stopped -p 127.0.0.1:8080:8080 \
   -v "$HOME/.config:/home/coder/.config" \
   -v "$PWD:/home/coder/project" \
