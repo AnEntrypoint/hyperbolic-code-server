@@ -12,6 +12,9 @@ git clone https://github.com/AnEntrypoint/hyperbolic-code-server.git
 cd hyperbolic-code-server/
 npm install
 node init.js
+
+#follow instructions
+
 cd tunnel
 pm2 start server.js
 pm2 save
