@@ -1,24 +1,22 @@
 FROM codercom/code-server:latest
+# Run everything as root
+USER root
+RUN echo 16
+# Install whichever Node version is LTS
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y && \
+    apt-get install -y nodejs python3 build-essential
 
-RUN touch ~/.bashrc && chmod +x ~/.bashrc
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+# Install Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y yarn
+WORKDIR /home/coder
+RUN git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
+WORKDIR /home/coder/hyperbolic-tunnel
 
-RUN apt-get update \
-    && apt-get install -y curl \
-    && apt-get -y autoclean
-
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 4.4.7
-
-RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-
-RUN source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-
-RUN node -v
-RUN npm -v
+RUN yarn install
+ENV target http://localhost:8080
+RUN chmod a+w ./
+USER coder
+ENTRYPOINT node runnode.js & sleep 10 && cat /home/coder/.config/code-server/config.yaml & cd /home/coder; /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
