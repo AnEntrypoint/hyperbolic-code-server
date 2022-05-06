@@ -1,5 +1,7 @@
 # hyperbolic-code-server
 
+get a live, online development environment immediately on your vps or host
+
 ```
 sh build.sh
 sh start.sh
