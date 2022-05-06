@@ -5,7 +5,7 @@ RUN echo 16
 # Install whichever Node version is LTS
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y && \
-    apt-get install -y nodejs python3 build-essential
+    apt-get install -y nodejs python3 build-essential tzdata
 
 # Install Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
