@@ -20,4 +20,4 @@ RUN npm install
 ENV target http://localhost:8080
 RUN chmod a+w ./
 USER coder
-ENTRYPOINT node runnode.js & sleep 10 && cat /home/coder/.config/code-server/config.yaml & cd /home/coder; /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
+ENTRYPOINT node runnode.js & sleep 2 && cat /home/coder/.config/code-server/config.yaml & cd /home/coder; /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
