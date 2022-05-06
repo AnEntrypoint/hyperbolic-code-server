@@ -1,0 +1,1 @@
+sudo docker run -d --name code-server --restart unless-stopped  -p 0.0.0.0:8080:8080 -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 -e "email=$2" -e "password=$1"  -v "$HOME/.config:/home/coder/.config"   -v "$PWD:/home/coder/project"   -u "$(id -u):$(id -g)"   -e "DOCKER_USER=$USER" "hyperbolic-code-server"
