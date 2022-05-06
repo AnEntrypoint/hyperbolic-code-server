@@ -15,7 +15,8 @@ WORKDIR /home/coder
 RUN git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
 WORKDIR /home/coder/hyperbolic-tunnel
 
-RUN yarn install
+RUN npm install -g pm2
+RUN npm install
 ENV target http://localhost:8080
 RUN chmod a+w ./
 USER coder
