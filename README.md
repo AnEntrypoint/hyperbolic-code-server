@@ -12,3 +12,5 @@ you will see a log after the container is started which will include your matic.
 ## can I connect to the machine without the matic.ml relay?
 
 yes you can, right now its done using hyperbolic-client
+
+https://github.com/lanmower/hyperbolic-client
