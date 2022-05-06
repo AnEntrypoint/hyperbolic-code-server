@@ -13,6 +13,7 @@ RUN npm install -g pm2
 RUN npm install
 ENV target http://localhost:8080
 RUN chmod a+w ./
+RUN sudo usermod -u 1001 coder && sudo groupmod -g 121 coder
 USER coder
 EXPOSE 443
 EXPOSE 80
