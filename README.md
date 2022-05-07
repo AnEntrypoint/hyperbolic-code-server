@@ -3,7 +3,7 @@
 get a live, online development environment immediately on your vps or host
 
 ```
-wget -qO- https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/Dockerfile | /bin/bash
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress optionalpasswordforvscode optionaltimezone
 ```
 
 you will see a log after the container is started which will include your matic.ml url and password
