@@ -3,6 +3,9 @@
 get a live, online development environment immediately on your vps or host
 
 ```
+x64
+
+armv8
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress optionalpasswordforvscode optionaltimezone
 ```
 
