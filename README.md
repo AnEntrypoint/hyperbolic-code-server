@@ -82,3 +82,7 @@ echo "/swapfile swap swap defaults 0 0" | sudo tee /etc/fstab > /dev/null
 yes you can, right now its done using hyperbolic-client
 
 https://github.com/lanmower/hyperbolic-client
+
+### direct connection
+
+if you go look in the hyperbolic-tunnel files that get created under ~/coder, you'll see the config for greenlock under sites, you can add additional urls of your sites custom domain in there under sites, and then open your code-server without the hyperswarm relay
