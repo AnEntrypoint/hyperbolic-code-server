@@ -85,4 +85,4 @@ https://github.com/lanmower/hyperbolic-client
 
 ### direct connection
 
-if you go look in the hyperbolic-tunnel files that get created under ~/coder, you'll see the config for greenlock under sites, you can add additional urls of your sites custom domain in there under sites, and then open your code-server without the hyperswarm relay
+if you go look in the hyperbolic-tunnel files that get created under ~/coder, you'll see the config for greenlock under sites, you can add additional urls of your sites custom domain in there under sites, and then open your code-server without the hyperswarm relay, and you should also be able to reach it on port 8080 without ssl, once you modify the config under ~/coder/.config/code-server/config.yaml, where you can change the host from 127.0.0.1 to 0.0.0.0
