@@ -12,7 +12,7 @@ There are four parameters
 x64
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -x64
 armv8
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeys optionalpassword optionaltimezone
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeys optionalpassword optionaltimezone UTC -arm
 ```
 
 you will see a log after the container is started which will include your matic.ml url and password
