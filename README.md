@@ -2,17 +2,17 @@
 
 get a live, online development environment immediately on your vps or host
 
-There are four parameters
+There are five parameters
  - your email (required for lesencrypt)
  - your secre key for generating a hyper address (any text make it long/unique)
  - a password for vscode (if left out it will generate one)
  - a timezone if you dont want UTC
-
+ - a selection of x64 or arm
 ```
 x64
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -x64
 armv8
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeys optionalpassword UTC -arm
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -arm
 ```
 
 you will see a log after the container is started which will include your matic.ml url and password
@@ -28,7 +28,7 @@ it should survive system restarts
 if you're setting up a fresh vps, here's a blurb for opening the firewall, installing docker and adding an 8gb pagefile, this should prep most servers for this app on a fresh install:
 
 ```
-
+sudo bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh)
 ```
 
 ## can I connect to the machine without the matic.ml relay?
