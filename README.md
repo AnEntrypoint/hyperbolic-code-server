@@ -3,7 +3,7 @@
 get a live, online development environment immediately on your vps or host
 
 There are five parameters
- - your email (required for lesencrypt)
+ - your email (required for letsencrypt)
  - your secre key for generating a hyper address (any text make it long/unique)
  - a password for vscode (if left out it will generate one)
  - a timezone if you dont want UTC
