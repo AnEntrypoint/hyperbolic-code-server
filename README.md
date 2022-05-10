@@ -7,10 +7,10 @@ There are five parameters
  - your secre key for generating a hyper address (any text make it long/unique)
  - a password for vscode (if left out it will generate one)
  - a timezone if you dont want UTC
- - a selection of x64 or arm
+ - a selection of amd64 or arm
 ```
 x64
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -x64
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -amd64
 armv8
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC -arm
 ```
