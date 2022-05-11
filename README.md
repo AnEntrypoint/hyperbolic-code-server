@@ -7,6 +7,7 @@ There are five parameters
  - your secre key for generating a hyper address (any text make it long/unique)
  - a password for vscode (if left out it will generate one)
  - a timezone if you dont want UTC
+ - a unique subdomain name you can use instead of your base32 hash (single word no dots)
  - a selection of amd64 or arm
 ```
 x64
