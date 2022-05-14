@@ -29,7 +29,7 @@ it should survive system restarts
 if you're setting up a fresh vps, here's a blurb for opening the firewall, installing docker and adding an 8gb pagefile, this should prep most servers for this app on a fresh install:
 
 ```
-sudo bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh)
+curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
 ```
 
 ## can I connect to the machine without the matic.ml relay?
