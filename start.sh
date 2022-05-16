@@ -8,7 +8,7 @@ echo "The timezone:"
 read tz
 echo "The subdomain you want to advertise as:"
 read subdomain
-echo "arm64 or amd64:"
+echo "arm or amd64:"
 read platform
 
 sudo docker run \
