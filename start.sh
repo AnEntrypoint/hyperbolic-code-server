@@ -1,5 +1,18 @@
+echo "Your email for letsencrypt:"
+read email
+echo "The hyper seed to generate a key from:"
+read seed
+echo "The VSCODE login password:"
+read pw
+echo "The timezone:"
+read tz
+echo "The subdomain you want to advertise as:"
+read subdomain
+echo "arm64 or amd64:"
+read platform
+
 sudo docker run \
-  -d --name code-server --restart unless-stopped --network host -e "TZ=$4" \
-  -e "email=$1" -e "password=$2" -v "$HOME/coder:/home/coder/" \
-  -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$3" -e "domainname=$5" "almagest/hyperbolic-code-server$6";
+  -d --name code-server --restart unless-stopped --network host -e "TZ=$tz" \
+  -e "email=$email" -e "password=$seed" -v "$HOME/coder:/home/coder/" \
+  -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$pw" -e "domainname=$subdomain" "almagest/hyperbolic-code-server-$platform";
 sudo docker logs code-server -f
