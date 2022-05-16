@@ -6,14 +6,11 @@ There are five parameters
  - your email (required for letsencrypt)
  - your secre key for generating a hyper address (any text make it long/unique)
  - a password for vscode (if left out it will generate one)
- - a timezone if you dont want UTC
+ - a timezone (or just say UTC)
  - a unique subdomain name you can use instead of your base32 hash (single word no dots)
  - a selection of amd64 or arm
 ```
-x64
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC subdomainname -amd64
-armv8
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh) email secretkeyforhyperaddress password UTC subdomainname -arm
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
 ```
 
 you will see a log after the container is started which will include your matic.ml url and password
