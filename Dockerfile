@@ -9,7 +9,8 @@ RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 RUN echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
 WORKDIR /home/coder
 #USER coder
-ENTRYPOINT sudo chmod a+rw /home/coder -R; \
+ENTRYPOINT sudo touch /home/coder/startup; \
+    sudo chmod a+rw /home/coder -R; \
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel || true; \
     cd /home/coder/hyperbolic-tunnel; \
     npm install; \
@@ -22,4 +23,4 @@ ENTRYPOINT sudo chmod a+rw /home/coder -R; \
         head -n -1 /etc/passwd > /tmp/passwd ; \
         sudo mv /tmp/passwd /etc/passwd ; \
     fi ; \
-    cd /home/coder && /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
+    cd /home/coder && sh /home/coder/startup & /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
