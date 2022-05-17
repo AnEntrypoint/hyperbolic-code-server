@@ -28,6 +28,7 @@ if you're setting up a fresh vps, here's a blurb for opening the firewall, insta
 ```
 curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
 ```
+(if docker is not available after run, try it again)
 
 ## can I connect to the machine without the matic.ml relay?
 
