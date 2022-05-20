@@ -42,4 +42,4 @@ fallocate -l 8G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-echo "/swapfile swap swap defaults 0 0" | sudo tee /etc/fstab
+echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
