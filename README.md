@@ -1,23 +1,27 @@
-# hyperbolic-code-server
+# hyperbolic-grain
+
+fork of hyperbolic-code-server that adds [grain-lang](https://grain-lang.org/), a functional language that compiles to wasm, to the code-server container.
 
 get a live, online development environment immediately on your vps or host
 
 There are five parameters
- - your email (required for letsencrypt)
- - your secre key for generating a hyper address (any text make it long/unique)
- - a password for vscode (if left out it will generate one)
- - a timezone (or just say UTC)
- - a unique subdomain name you can use instead of your base32 hash (single word no dots)
- - a selection of amd64 or arm
+
+- your email (required for letsencrypt)
+- your secre key for generating a hyper address (any text make it long/unique)
+- a password for vscode (if left out it will generate one)
+- a timezone (or just say UTC)
+- a unique subdomain name you can use instead of your base32 hash (single word no dots)
+- a selection of amd64 or arm
+
 ```
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
+bash <(curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/start.sh)
 ```
 
 you will see a log after the container is started which will include your sites.247420.xyz url and password
 
 you can check in on your server with
 
-``` 
+```
 docker logs code-server -f
 ```
 
@@ -26,15 +30,16 @@ it should survive system restarts
 if you're setting up a fresh vps, here's a blurb for opening the firewall, installing docker and adding an 8gb pagefile, this should prep most servers for this app on a fresh install:
 
 ```
-curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
+curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/newhost.sh | sudo bash
 ```
+
 (if docker is not available after run, try it again)
 
 ## can I connect to the machine without the sites.247420.xyz relay?
 
 yes you can, right now its done using hyperbolic-client
 
-https://github.com/lanmower/hyperbolic-client
+<https://github.com/lanmower/hyperbolic-client>
 
 ### direct connection
 
@@ -49,6 +54,3 @@ yes you can, right now the easiest way to do it is to just git clone out more hy
 yes that's done in the site configs
 hyperbolic-tunnel/site/routerconfig.json should gain an additional site
 hyperbolictunnel/site/config.json should route that hostname to an additional address
-```
-
-```
