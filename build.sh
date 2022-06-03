@@ -1,5 +1,13 @@
-echo "tag image with arm or amd64:"
-echo "arm | amd64"
-read platform
+#!/bin/bash
+
+platform=""
+case $(uname -m) in
+    x86_64) platform="amd64" ;;
+    aarch64) platform="arm64" ;;
+    arm)    dpkg --print-architecture | grep -q "arm64" && platform="arm64" || platform="arm32" ;;
+esac
+if [[ (! $platform  == "arm32" && ! $platform  == "arm64" && ! $platform == "amd64") ]]; then echo "arm or amd64 is needed to pull the right docker image to run"; exit 1; fi
+
+echo "platform is $platform. docker tag will be: av8ta/hyperbolic-grain:main-$platform"; echo "";
 
 docker build -t "av8ta/hyperbolic-grain:main-$platform" .

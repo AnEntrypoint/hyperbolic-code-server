@@ -7,7 +7,7 @@ get a live, online development environment immediately on your vps or host
 There are five parameters
 
 - your email (required for letsencrypt)
-- your secre key for generating a hyper address (any text make it long/unique)
+- your secret key for generating a hyper address (any text make it long/unique)
 - a password for vscode (if left out it will generate one)
 - a timezone (or just say UTC)
 - a unique subdomain name you can use instead of your base32 hash (single word no dots)
@@ -17,7 +17,7 @@ There are five parameters
 bash <(curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/start.sh)
 ```
 
-you will see a log after the container is started which will include your sites.247420.xyz url and password
+you will see a log after the container is started which will include your `<subdomain>.sites.247420.xyz` url and password
 
 you can check in on your server with
 
