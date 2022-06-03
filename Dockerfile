@@ -18,7 +18,7 @@ RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 WORKDIR /home/coder
 
 # alias code so you can open files from terminal
-RUN sudo echo 'alias code="/usr/lib/code-server/bin/code-server"' > /home/coder/.bashrc
+RUN if ! sudo cat /root/.bashrc | grep -q 'alias code="'; then sudo echo 'alias code="/usr/lib/code-server/bin/code-server"' >> /root/.bashrc; fi;
 
 # USER coder
 ENTRYPOINT sudo touch /home/coder/startup; \
@@ -34,5 +34,5 @@ ENTRYPOINT sudo touch /home/coder/startup; \
     sleep 3 && \
     cat ~/.config/code-server/config.yaml & cd /home/coder; \
     if ! cat /etc/passwd | grep -q "coder:"; then echo "adding coder user"; echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd; fi; \
-    source /home/coder/.bashrc \
+    source /root/.bashrc \
     cd /home/coder && sh /home/coder/startup & /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
