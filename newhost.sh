@@ -1,5 +1,6 @@
-# INSTALL DOCKER
+#!/bin/bash
 
+# INSTALL DOCKER
 apt-get update
 apt-get install \
     ca-certificates \

@@ -26,13 +26,6 @@ if [[ $tz        == "" ]]; then tz=UTC ; echo "timezone is UTC"; fi
 echo "subdomain you want to advertise as: (<subdomain>.sites.247420.xyz)"
 read subdomain
 
-# platform=""
-# case $(uname -m) in
-#     x86_64) platform="amd64" ;;
-#     arm)    dpkg --print-platform | grep -q "arm64" && platform="arm64" || platform="arm" ;;
-# esac
-# if [[ (! $platform  == "arm" && ! $platform == "amd64") ]]; then echo "arm or amd64 is needed to pull the right docker image to run"; exit 1; fi
-
 platform=""
 case $(uname -m) in
     x86_64) platform="amd64" ;;
