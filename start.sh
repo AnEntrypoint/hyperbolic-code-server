@@ -2,7 +2,7 @@ echo "Your email for letsencrypt:"
 read email
 echo "The VSCODE login password:"
 read pw
-echo "The timezone:"
+echo "The timezone (pick UTC if unsure):"
 read tz
 echo "The subdomain you want to advertise as:"
 read subdomain
