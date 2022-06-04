@@ -1,7 +1,5 @@
 echo "Your email for letsencrypt:"
 read email
-echo "The hyper seed to generate a key from:"
-read seed
 echo "The VSCODE login password:"
 read pw
 echo "The timezone:"
