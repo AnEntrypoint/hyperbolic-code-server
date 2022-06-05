@@ -14,7 +14,7 @@ ENTRYPOINT sudo touch /home/coder/startup; \
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel || true; \
     cd /home/coder/hyperbolic-tunnel; \
     npm install; \
-    target=$target http=80 https=443 node runnode.js $password $email & \
+    target=$target http=80 https=443 pm2 start runnode.js & \
     sleep 3 && \
     cat ~/.config/code-server/config.yaml & cd /home/coder; \
     if [ ! -f firstrundone ]; \
