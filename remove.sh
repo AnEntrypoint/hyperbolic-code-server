@@ -1,1 +1,3 @@
-sudo docker stop code-server; sudo docker rm code-server
+#!/bin/bash
+
+docker stop code-server; docker rm code-server
