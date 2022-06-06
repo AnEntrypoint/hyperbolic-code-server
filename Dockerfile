@@ -11,9 +11,9 @@ RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 WORKDIR /home/coder
 
 USER coder
-ENTRYPOINT sudo touch /home/coder/startup; \
+ENTRYPOINT touch /home/coder/.bashrc; \
     # alias 'code' so you can open files from terminal \
-    touch /home/coder/.bashrc; if ! cat /home/coder/.bashrc | grep -q 'alias code="'; then echo 'alias code="/usr/lib/code-server/bin/code-server"' >> /home/coder/.bashrc; fi; \
+    if ! cat /home/coder/.bashrc | grep -q 'alias code="'; then echo 'alias code="/usr/lib/code-server/bin/code-server"' >> /home/coder/.bashrc; fi; \
     # make an accessible global node_modules for userland npm global installs \
     if ! cat /home/coder/.bashrc | grep -q 'export PATH=/home/coder/.global_node_modules/bin:'; then echo "export PATH=/home/coder/.global_node_modules/bin:$PATH" >> /home/coder/.bashrc; fi; \
     mkdir /home/coder/.global_node_modules; \
@@ -26,9 +26,8 @@ ENTRYPOINT sudo touch /home/coder/startup; \
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel || true; \
     cd /home/coder/hyperbolic-tunnel; \
     npm install; \
-    # target=$target http=80 https=443 node runnode.js $password $email & \
-    target=$target http=80 https=443 pm2 start runnode.js & \
+    target=$target http=80 https=443 node runnode.js & \
     sleep 3 && \
     cat ~/.config/code-server/config.yaml & cd /home/coder; \
     if ! cat /etc/passwd | grep -q "coder:"; then echo "adding coder user"; echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd; fi; \
-    cd /home/coder && sh /home/coder/startup & /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
+    cd /home/coder && /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
