@@ -10,15 +10,15 @@ There are five parameters
  - a unique subdomain name you can use instead of your base32 hash (single word no dots)
  - a selection of amd64 or arm
 ```
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/install.sh)
 ```
 
-you will see a log after the container is started which will include your matic.ml url and password
+you will see a log after the container is started which will include your sites.247420.xyz url and password
 
 you can check in on your server with
 
 ``` 
-sudo docker logs code-server -f
+docker logs code-server -f
 ```
 
 it should survive system restarts
@@ -30,7 +30,7 @@ curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/ma
 ```
 (if docker is not available after run, try it again)
 
-## can I connect to the machine without the matic.ml relay?
+## can I connect to the machine without the sites.247420.xyz relay?
 
 yes you can, right now its done using hyperbolic-client
 
