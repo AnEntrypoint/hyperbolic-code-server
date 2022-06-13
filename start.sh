@@ -11,8 +11,10 @@ if docker restart code-server;
     echo "./build.sh";
     echo "./remove.sh";
     echo "./install.sh"; echo "";
-    # tail the logs
-    docker logs code-server -f;
+    # tail the logs and make available to container
+    # used by hyperbolic-vscode-extensions.sh to check when the extension host has started
+    rm -f $HOME/coder/dockerlogs/install.sh;
+    docker logs code-server -f | tee -a $HOME/coder/dockerlogs/install.log;
   else
     echo ""
     echo "you need to run install.sh to create the container.";

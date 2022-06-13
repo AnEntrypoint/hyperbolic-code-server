@@ -71,5 +71,7 @@ docker run \
   -e "email=$email" -e "password=$seed" -v "$HOME/coder:/home/coder/" \
   -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$pw" -e "domainname=$subdomain" $docker_tag;
 
-# tail the logs
-docker logs code-server -f;
+# tail the logs and make available to container
+# used by hyperbolic-vscode-extensions.sh to check when the extension host has started
+rm -f $HOME/coder/dockerlogs/install.sh
+docker logs code-server -f | tee -a $HOME/coder/dockerlogs/install.log;
