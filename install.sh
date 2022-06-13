@@ -21,7 +21,7 @@ echo "timezone: $tz"; \
 echo ""; fi;
 
 echo "vscode login password:"; read -s pw;
-if [[ ${#pw} -lt 8 ]]; then echo "password ought to be at least 8 characters long. it's only ${#pw}"; exit 1; fi;
+if [[ ${#pw} -lt 8 ]]; then echo "Your code-server is broadcast on the internet so your password ought to be at least 8 characters long. It's only ${#pw}"; exit 1; fi;
 
 if [[ $email == "" ]]; then echo "your email for letsencrypt:"; read email; fi;
 regex="^[a-z0-9!#\$%&'*+/=?^_\`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_\`{|}~-]+)*@([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]([a-z0-9-]*[a-z0-9])?\$"

@@ -14,16 +14,10 @@ ENV target http://localhost:8080
 RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 
 # entrypoint setup scripts
-COPY ./setup.sh /usr/local/bin/hyperbolic-grain-setup.sh
-RUN ["chmod", "+x", "/usr/local/bin/hyperbolic-grain-setup.sh"]
-
-COPY ./install-grain-extension.sh /usr/local/bin/install-grain-extension.sh
-RUN ["chmod", "+x", "/usr/local/bin/install-grain-extension.sh"]
-
-COPY ./entrypoint.sh /usr/local/bin/hyperbolic-grain-entrypoint.sh
-RUN ["chmod", "+x", "/usr/local/bin/hyperbolic-grain-entrypoint.sh"]
+COPY ./setup/* /usr/local/bin/
+RUN chmod +x /usr/local/bin/*
 
 USER coder
 WORKDIR /home/coder
 
-ENTRYPOINT ["/usr/local/bin/hyperbolic-grain-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/hyperbolic-entrypoint.sh"]

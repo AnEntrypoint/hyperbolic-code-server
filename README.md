@@ -25,7 +25,11 @@ you can check in on your server with
 docker logs code-server -f
 ```
 
+this command is started for you if you use the included scripts to install / start
+
 it should survive system restarts
+
+## vps setup
 
 if you're setting up a fresh vps, here's a blurb for opening the firewall, installing docker and adding an 8gb pagefile, this should prep most servers for this app on a fresh install:
 
