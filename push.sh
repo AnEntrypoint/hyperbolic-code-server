@@ -11,6 +11,6 @@ if [[ (! $platform == "arm32" && ! $platform == "arm64" && ! $platform == "amd64
   exit 1
 fi
 
-docker_tag=av8ta/hyperbolic-grain:main-$platform
+docker_tag=almagest/hyperbolic-code-server-$platform
 
 docker push $docker_tag

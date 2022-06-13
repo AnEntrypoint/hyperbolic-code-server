@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# $1: filepath $2: url (often https://raw.githubusercontent.com/...)
+# $1: filename $2: url (often https://raw.githubusercontent.com/...)
 install_extension() {
   vscode_ext="$1"
   if [ -f "$vscode_ext" ]; then
     echo "vscode extension $1 found, skipping download and install"
   else
     echo "vscode extension $1 not found, downloading from $2..."
-    curl --output /home/coder/"$1" "$2"
+    wget -O /home/coder/"$1" "$2"
     echo "installing extension: $1"
     /usr/bin/code-server --install-extension /home/coder/"$1"
   fi
@@ -28,9 +28,14 @@ while true; do
     break
   fi
   if grep -q -i --no-messages "Extension host agent started." /home/coder/dockerlogs/install.log; then
-    install_extension "vscode-grain.vsix" "https://raw.githubusercontent.com/av8ta/grain-language-server/master/editor-extensions/vscode/vscode-grain-0.16.0.vsix"
+    install_extension "gitlens.vsix" "https://github.com/gitkraken/vscode-gitlens/releases/download/v12.0.7/eamodio.gitlens-12.0.7.vsix"
     break
   else
     echo "$((attempt++)) waiting for extension host to start. try refreshing code-server page in browser"
   fi
 done
+
+# https://raw.githubusercontent.com/av8ta/grain-language-server/master/editor-extensions/vscode/vscode-grain-0.16.0.vsix
+# https://github.com/gitkraken/vscode-gitlens/releases/download/v12.0.7/eamodio.gitlens-12.0.7.vsix
+
+# https://raw.githubusercontent.com/gitkraken/vscode-gitlens/releases/download/v12.0.7/eamodio.gitlens-12.0.7.vsix

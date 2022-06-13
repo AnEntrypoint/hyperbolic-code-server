@@ -102,9 +102,9 @@ echo "export subdomain=$subdomain" >>env.sh
 echo "export tz=$tz" >>env.sh
 
 hyperbolic_extern_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
-echo "enjoy hyperbolic code-server on your local network at: http://$hyperbolic_extern_ip:8080"
+echo "enjoy hyperbolic-code-server on your local network at: http://$hyperbolic_extern_ip:8080"
 
-docker_tag=av8ta/hyperbolic-grain:main-$platform
+docker_tag=almagest/hyperbolic-code-server-$platform
 echo "installing $docker_tag"
 
 docker run \

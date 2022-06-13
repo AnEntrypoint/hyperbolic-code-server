@@ -1,6 +1,4 @@
-# hyperbolic-grain
-
-fork of hyperbolic-code-server that adds [grain-lang](https://grain-lang.org/), a functional language that compiles to wasm, to the code-server container.
+# hyperbolic-code-server
 
 get a live, online development environment immediately on your vps or host
 
@@ -14,7 +12,7 @@ There are five parameters
 - a selection of amd64 or arm
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/install.sh)
 ```
 
 you will see a log after the container is started which will include your `<subdomain>.sites.247420.xyz` url and password
@@ -34,7 +32,7 @@ it should survive system restarts
 if you're setting up a fresh vps, here's a blurb for opening the firewall, installing docker and adding an 8gb pagefile, this should prep most servers for this app on a fresh install:
 
 ```
-curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/newhost.sh | sudo bash
+curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
 ```
 
 (if docker is not available after run, try it again)

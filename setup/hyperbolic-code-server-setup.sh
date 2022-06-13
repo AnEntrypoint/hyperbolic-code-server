@@ -3,8 +3,7 @@
 # todo: modify hyperbolic-tunnel to remove need for this marker file
 sudo touch /home/coder/startup
 
-# set permissions for grain and home
-sudo chmod a+rw /grain -R
+# set permissions for home
 sudo chmod a+rw /home/coder -R
 
 # alias 'code' so you can open files from terminal
