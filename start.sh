@@ -7,17 +7,13 @@ if docker restart code-server;
     echo "bind_addr: 0.0.0.0"
     echo "on this device: http://localhost:8080 aka http://127.0.0.1:8080"; echo "";
     echo "to update grain: pull, build, install:"; echo "";
-    echo "docker pull grainlang/grain:main-slim";
-    echo "./remove.sh";
+    echo "./pull-grain.sh";
     echo "./build.sh";
+    echo "./remove.sh";
     echo "./install.sh"; echo "";
-    echo "you may also want to delete ~/coder/hyperbolic-tunnel which is bind mounted into the container.";
-    echo "deleting it will ensure the settings chosen when running install.sh are correctly applied.";
-    echo "do this before running ./install.sh";
+    # tail the logs
+    docker logs code-server -f;
   else
     echo ""
     echo "you need to run install.sh to create the container.";
-    echo "if you have previously run install.sh ..."; echo "";
-    echo "you may also want to delete ~/coder/hyperbolic-tunnel which is bind mounted into the container.";
-    echo "deleting it will ensure the settings chosen when running install.sh are correctly applied.";
 fi

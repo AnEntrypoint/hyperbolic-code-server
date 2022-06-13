@@ -1,0 +1,4 @@
+*.sh
+!entrypoint.sh
+!setup.sh
+!install-grain-extension.sh

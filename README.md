@@ -14,7 +14,7 @@ There are five parameters
 - a selection of amd64 or arm
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/start.sh)
+bash <(curl -s https://raw.githubusercontent.com/av8ta/hyperbolic-grain/main/install.sh)
 ```
 
 you will see a log after the container is started which will include your `<subdomain>.sites.247420.xyz` url and password

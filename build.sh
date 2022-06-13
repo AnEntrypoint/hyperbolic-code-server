@@ -8,6 +8,7 @@ case $(uname -m) in
 esac
 if [[ (! $platform  == "arm32" && ! $platform  == "arm64" && ! $platform == "amd64") ]]; then echo "arm or amd64 is needed to pull the right docker image to run"; exit 1; fi
 
-echo "platform is $platform. docker tag will be: av8ta/hyperbolic-grain:main-$platform"; echo "";
+docker_tag=av8ta/hyperbolic-grain:main-$platform
+echo "platform is $platform. docker tag will be: $docker_tag"; echo "";
 
-docker build -t "av8ta/hyperbolic-grain:main-$platform" .
+docker build -t $docker_tag .
