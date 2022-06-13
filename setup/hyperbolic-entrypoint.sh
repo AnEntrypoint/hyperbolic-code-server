@@ -4,7 +4,7 @@ set -e
 # setup hyperbolic-code-server environment in mounted volume
 /usr/local/bin/hyperbolic-code-server-setup.sh
 
-# run extension install script in background so it can wait for 
+# run extension install script in background so it can wait for
 # vscode extension host to be ready
 /usr/local/bin/hyperbolic-vscode-extensions.sh &
 

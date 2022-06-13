@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker stop code-server;
+docker stop code-server

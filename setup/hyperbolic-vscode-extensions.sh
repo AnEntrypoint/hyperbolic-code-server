@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # $1: filepath $2: url (often https://raw.githubusercontent.com/...)
 install_extension() {
@@ -31,6 +31,6 @@ while true; do
     install_extension "vscode-grain.vsix" "https://raw.githubusercontent.com/av8ta/grain-language-server/master/editor-extensions/vscode/vscode-grain-0.16.0.vsix"
     break
   else
-    echo "attempt number $((attempt++)) waiting for extension host to start"
+    echo "$((attempt++)) waiting for extension host to start. try refreshing code-server page in browser"
   fi
 done
