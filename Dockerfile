@@ -26,7 +26,7 @@ ENTRYPOINT touch /home/coder/.bashrc; \
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel || true; \
     cd /home/coder/hyperbolic-tunnel; \
     npm install; \
-    target=$target http=80 https=443 pm2 start runnode.js & \
+    target=$target http=80 https=443 pm2 start runnode.js \
     sleep 3 && \
     cat ~/.config/code-server/config.yaml & cd /home/coder; \
     if ! cat /etc/passwd | grep -q "coder:"; then echo "adding coder user"; echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd; fi; \
