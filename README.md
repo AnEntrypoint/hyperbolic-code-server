@@ -9,7 +9,7 @@ There are five parameters
  - a unique subdomain name you can use instead of your base32 hash (single word no dots)
  - a selection of amd64 or arm
 ```
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
+curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/remove.sh | sudo bash
 ```
 
 you will see a log after the container is started which will include your sites.247420.xyz url and password
