@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-docker stop code-server; docker rm code-server
-docker prune --all
+docker stop code-server; docker rm code-server;
+docker prune --all;
 echo "Your email for letsencrypt:"
 read email
 echo "The VSCODE login password:"
