@@ -27,4 +27,31 @@ if you're setting up a fresh vps, here's a blurb for opening the firewall, insta
 ```
 curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
 ```
-(if docker is not available after run, try it again)
+
+# How do I update my config?
+you can edit hyperconfig.json to advertise more names
+youc an edit routerconfig.json to add more incoming endpoints
+after doing any updates, you will want to restart the reverse proxy (inside vscode terminal)...
+```
+pm2 restart runnode
+```
+if you want to update hyperbolic-tunnel to a newer version...
+```
+cd ~/hyperbolic-tunnel
+git pull
+pm2 restart runnode
+```
+
+# I'm stuck, my installation is somehow messed up, how do I recover my vscode?
+You can reload everything without losing any data, here's what I do:
+```curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/remove.sh | sudo bash;
+
+sudo docker system prune --all;
+
+rm ~/coder/firstrundone;
+rm ~/coder/hyperbolic-tunnel/run;
+cd ~/coder/hyperbolic-tunnel;
+rm -r package-lock.json;
+rm -r node_modules;
+git reset --hard;
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh);```
