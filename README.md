@@ -54,4 +54,5 @@ cd ~/coder/hyperbolic-tunnel;
 rm -r package-lock.json;
 rm -r node_modules;
 git reset --hard;
+git pull;
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh);```
