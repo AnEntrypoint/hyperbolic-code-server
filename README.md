@@ -44,7 +44,8 @@ pm2 restart runnode
 
 # I'm stuck, my installation is somehow messed up, how do I recover my vscode?
 You can reload everything without losing any data, here's what I do:
-```curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/remove.sh | sudo bash;
+```
+curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/remove.sh | sudo bash;
 
 sudo docker system prune --all;
 
@@ -55,4 +56,5 @@ rm -r package-lock.json;
 rm -r node_modules;
 git reset --hard;
 git pull;
-bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh);```
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh);
+```
