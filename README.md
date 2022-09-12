@@ -12,7 +12,9 @@ There are five parameters
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
 ```
 
-you will see a log after the container is started which will include your sites.247420.xyz url and password
+you will see a log after the container is started which will include your 247420.xyz url and password
+
+your code server will be on code.YOURNAME.247420.xyz
 
 you can check in on your server with
 
