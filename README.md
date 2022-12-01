@@ -2,6 +2,12 @@
 
 get a live, online development environment immediately on your vps or host
 
+(tl;dr)
+```
+curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
+bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
+```
+
 There are five parameters
  - your email (required for letsencrypt)
  - a password for vscode (if left out it will generate one)
