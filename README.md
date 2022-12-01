@@ -4,7 +4,9 @@ get a live, online development environment immediately on your vps or host
 
 (tl;dr)
 ```
+(install docker and set up swap file on vps)
 curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/newhost.sh | sudo bash
+(install this app)
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh)
 ```
 
