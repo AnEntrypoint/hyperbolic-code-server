@@ -68,3 +68,17 @@ git reset --hard;
 git pull;
 bash <(curl -s https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/start.sh);
 ```
+
+# I lost my login!
+
+just do this
+ 
+```
+sudo docker exec -it code-server sh
+```
+ 
+then
+ 
+```
+echo $PASSWORD
+```
