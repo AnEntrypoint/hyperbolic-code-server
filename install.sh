@@ -59,7 +59,7 @@ docker_tag=almagest/hyperbolic-code-server-$platform
 echo "installing $docker_tag"
 
 docker run \
-  -d --name code-server --restart unless-stopped --network host -e "TZ=$tz" \
+  -d --name code-server --restart unless-stopped --publish-all -e "TZ=$tz" \
   -e "email=$email" -e "password=$seed" -v "$HOME/coder:/home/coder/" \
   -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$pw" -e "domainname=$subdomain" $docker_tag;
 docker logs code-server -f;
