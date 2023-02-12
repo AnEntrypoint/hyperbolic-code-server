@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 docker stop code-server; docker rm code-server;
@@ -15,7 +14,7 @@ echo "arm or amd64:"
 read platform
 
 sudo docker run \
-  -d --name code-server --restart unless-stopped --expose=53-10240 -e "TZ=$tz" \
+  -d --name code-server --restart unless-stopped --network host -e "TZ=$tz" \
   -e "email=$email" -e "password=$seed" -v "$HOME/coder:/home/coder/" \
   -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$pw" -e "domainname=$subdomain" "almagest/hyperbolic-code-server-$platform";
 sudo docker logs code-server -f
