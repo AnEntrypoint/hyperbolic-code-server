@@ -14,30 +14,6 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 ufw disable
-# Accept all traffic first to avoid ssh lockdown  via iptables firewall rules #
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
- 
-# Flush All Iptables Chains/Firewall rules #
-iptables -F
- 
-# Delete all Iptables Chains #
-iptables -X
- 
-# Flush all counters too #
-iptables -Z 
-# Flush and delete all nat and  mangle #
-iptables -t nat -F
-iptables -t nat -X
-iptables -t mangle -F
-iptables -t mangle -X
-iptables -t raw -F
-iptables -t raw -X
-
-iptables-save > /etc/iptables/rules.v4
-ip6tables-save > /etc/iptables/rules.v6
-
 fallocate -l 8G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
