@@ -55,6 +55,29 @@ echo "export tz=$tz" >> env.sh
 hyperbolic_extern_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 echo "enjoy hyperbolic code-server on your local network at: http://$hyperbolic_extern_ip:8080"
 
+# Accept all traffic first to avoid ssh lockdown  via iptables firewall rules #
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+
+# Flush All Iptables Chains/Firewall rules #
+iptables -F
+
+# Delete all Iptables Chains #
+iptables -X
+
+# Flush all counters too #
+iptables -Z 
+# Flush and delete all nat and  mangle #
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -t raw -F
+iptables -t raw -X
+
+iptables-save > /etc/iptables/rules.v4
+ip6tables-save > /etc/iptables/rules.v6
 docker_tag=almagest/hyperbolic-code-server-$platform
 echo "installing $docker_tag"
 
