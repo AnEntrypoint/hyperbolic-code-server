@@ -13,13 +13,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
-sudo mkdir -p /etc/systemd/system/docker.service.d/
-
-sudo tee /etc/systemd/system/docker.service.d/tasksmax.conf <<-'EOF'
-[Service]
-TasksMax=infinity
-EOF
-
 iptables -I INPUT -p tcp -j ACCEPT
 iptables -I INPUT -p udp -j ACCEPT
 iptables-save > /etc/iptables/rules.v4
