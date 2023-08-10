@@ -11,6 +11,5 @@ WORKDIR /home/coder
 #USER coder
 ENTRYPOINT wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh; \
     ls; \
-    chmod +x ./entrypoint.sh; \
-    ./entrypoint.sh; \
+    sudo sh ./entrypoint.sh; \
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
