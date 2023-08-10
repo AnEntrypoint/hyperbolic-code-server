@@ -26,5 +26,5 @@ ENTRYPOINT sudo touch /home/coder/startup; \
     fi ; \
     cd /home/coder; \
     apt install nohup -y; \
-    nohup /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 . 1>vscode.log 2>vscode.err & \
-    sh /home/coder/startup; \
+    nohup sh /home/coder/startup; 1>vscode.log 2>vscode.err & \
+    /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
