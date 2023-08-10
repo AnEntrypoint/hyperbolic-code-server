@@ -10,7 +10,7 @@ echo "arm or amd64:"
 read platform
 
 sudo docker run \
-  -d --name code-server --restart unless-stopped --privileged --net=host -t -e "TZ=$tz" \
+  -d --name code-server --restart unless-stopped --net=host -t -e "TZ=$tz" \
   -e "email=$email" -e "password=$seed" -v "$HOME/coder:/home/coder/" \
   -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e "PASSWORD=$pw" -e "domainname=$subdomain" "almagest/hyperbolic-code-server-$platform";
 sudo docker logs code-server -f -n 1000
