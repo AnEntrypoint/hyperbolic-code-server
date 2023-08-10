@@ -20,6 +20,10 @@ sudo tee /etc/systemd/system/docker.service.d/tasksmax.conf <<-'EOF'
 TasksMax=infinity
 EOF
 
+iptables -I INPUT -p tcp -j ACCEPT
+iptables -I INPUT -p udp -j ACCEPT
+iptables-save > /etc/iptables/rules.v4
+ip6tables-save > /etc/iptables/rules.v6
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
