@@ -13,6 +13,7 @@ ENTRYPOINT sudo touch /home/coder/startup; \
     sudo chmod a+rw /home/coder -R; \
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel || true; \
     cd /home/coder/hyperbolic-tunnel; \
+    git pull; \
     npm install; \
     target=$target http=80 https=443 pm2 start runnode.js & \
     sleep 3 && \
@@ -23,4 +24,7 @@ ENTRYPOINT sudo touch /home/coder/startup; \
         head -n -1 /etc/passwd > /tmp/passwd ; \
         sudo mv /tmp/passwd /etc/passwd ; \
     fi ; \
-    cd /home/coder && sh /home/coder/startup & /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
+    cd /home/coder; \
+    apt install nohup -y; \
+    nohup /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 . 1>vscode.log 2>vscode.err & \
+    sh /home/coder/startup; \
