@@ -25,5 +25,5 @@ ENTRYPOINT sudo touch /home/coder/startup; \
         sudo mv /tmp/passwd /etc/passwd ; \
     fi ; \
     cd /home/coder; \
-    nohup sh /home/coder/startup 1>vscode.log 2>vscode.err & \
+    /home/coder/startup 1>vscode.log 2>vscode.err & \
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
