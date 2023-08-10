@@ -2,7 +2,7 @@ FROM codercom/code-server:latest
 USER root
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y && \
-    apt-get install -y nodejs python3 build-essential tzdata libcap2-bin
+    apt-get install -y nodejs python3 build-essential tzdata libcap2-bin nohup
 RUN npm install -g pm2
 ENV target http://localhost:8080
 RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
