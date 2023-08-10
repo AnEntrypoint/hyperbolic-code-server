@@ -14,7 +14,7 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 ufw disable
-
+echo vm.swappiness=0 | sudo tee -a /etc/sysctl.conf
 fallocate -l 8G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
