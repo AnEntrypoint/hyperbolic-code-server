@@ -16,4 +16,5 @@ if [ ! -f firstrundone ]
     sudo mv /tmp/passwd /etc/passwd
 fi
 cd /home/coder
+chmod +x startup
 /home/coder/startup 1>startup.log 2>startup.err &
