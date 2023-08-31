@@ -1,6 +1,6 @@
 FROM codercom/code-server:latest
 USER root
-RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y && \
     apt-get install -y nodejs python3 build-essential tzdata libcap2-bin wget
 RUN npm install -g pm2
