@@ -5,18 +5,6 @@ git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbol
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
-
-sudo apt update && sudo apt install -y curl git python python3-pip build-essential redis openssl libssl-dev pkg-config
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-sh ~/.bashrc
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-npm config delete prefix
-nvm install 18
-nvm use 18
-nvm set default 18
-sudo npm install pm2 -g
 target=$target http=80 https=443 sudo pm2 start runnode.js
 sleep 3
 cat ~/.config/code-server/config.yaml
