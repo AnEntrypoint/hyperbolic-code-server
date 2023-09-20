@@ -17,7 +17,7 @@ nvm install 18
 nvm use 18
 nvm set default 18
 sudo npm install pm2 -g
-target=$target http=80 https=443 pm2 start runnode.js
+target=$target http=80 https=443 sudo pm2 start runnode.js
 sleep 3
 cat ~/.config/code-server/config.yaml
 cd /home/coder
