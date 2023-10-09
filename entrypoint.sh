@@ -14,8 +14,9 @@ if [ ! -f firstrundone ]
     touch /home/coder/firstrundone
     head -n -1 /etc/passwd > /tmp/passwd
     sudo mv /tmp/passwd /etc/passwd
+    sudo chmod +x startup
 fi
 cd /home/coder
-sudo chmod +x startup
+
 /home/coder/startup 1>startup.log 2>startup.err &
 echo $PASSWORD
