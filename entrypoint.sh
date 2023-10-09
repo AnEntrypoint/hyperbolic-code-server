@@ -3,6 +3,7 @@ sudo touch /home/coder/startup
 sudo chmod a+rw /home/coder -R
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
 del /home/coder/entrypoint.sh
+cd /home/coder
 wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
 cd /home/coder/hyperbolic-tunnel
 git pull
