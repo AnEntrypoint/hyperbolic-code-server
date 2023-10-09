@@ -5,7 +5,7 @@ git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbol
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
-target=$target http=80 https=443 sudo pm2 start runnode.js
+target=$target http=80 https=443 pm2 start runnode.js
 sleep 3
 cat ~/.config/code-server/config.yaml
 cd /home/coder
