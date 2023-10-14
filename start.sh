@@ -8,7 +8,7 @@ echo "The subdomain you want to advertise as:"
 read subdomain
 echo "arm or amd64:"
 read platform
-
+sudo docker pull "almagest/hyperbolic-code-server-$platform";
 sudo docker run \
   -d --name code-server --restart unless-stopped --net=host -t -e "TZ=$tz" \
   -e "email=$email" -e "password=$seed" -v "/var/run/docker.sock:/var/run/docker.sock" -v "$HOME/coder:/home/coder/" \
