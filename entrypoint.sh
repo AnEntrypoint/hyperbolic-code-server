@@ -1,10 +1,12 @@
 mkdir /home/coder
 sudo touch /home/coder/startup
-sudo chmod a+rw /home/coder -R
+sudo chown ubuntu:ubuntu /home/coder -R
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
 rm /home/coder/entrypoint.sh
 cd /home/coder
 wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
+chmod a+x /home/coder/entrypoint.sh
+chmod a+x /home/coder/startup
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
