@@ -5,8 +5,8 @@ git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbol
 rm /home/coder/entrypoint.sh
 cd /home/coder
 wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
-chmod a+x /home/coder/entrypoint.sh
-chmod a+x /home/coder/startup
+sudo chmod a+x /home/coder/entrypoint.sh
+sudo chmod a+x /home/coder/startup
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
