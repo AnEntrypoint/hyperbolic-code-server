@@ -10,7 +10,7 @@ sudo chmod a+x /home/coder/startup
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
-target=$target http=80 https=443 pm2 start runnode.js
+sudo target=$target http=80 https=443 pm2 start runnode.js
 sleep 3
 cat ~/.config/code-server/config.yaml
 cd /home/coder
