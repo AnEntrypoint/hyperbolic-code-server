@@ -1,4 +1,3 @@
-mkdir /home/coder
 sudo touch /home/coder/startup
 sudo chown coder:coder /home/coder -R
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
