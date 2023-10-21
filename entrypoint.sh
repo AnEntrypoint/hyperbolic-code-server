@@ -1,10 +1,9 @@
 mkdir /home/coder
 sudo touch /home/coder/startup
-sudo chown ubuntu:ubuntu /home/coder -R
+sudo chown coder:coder /home/coder -R
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
 rm /home/coder/entrypoint.sh
 cd /home/coder
-sudo chmod a+rw /home/coder -R
 wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
 sudo chmod a+x /home/coder/entrypoint.sh
 sudo chmod a+x /home/coder/startup
