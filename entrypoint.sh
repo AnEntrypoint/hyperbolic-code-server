@@ -1,7 +1,6 @@
 sudo touch /home/coder/startup
-sudo chown ubuntu:ubuntu * -R
+sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
 cd /home/coder
-cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
 target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
