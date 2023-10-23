@@ -1,11 +1,10 @@
 sudo touch /home/coder/startup
 sudo chown coder:coder /home/coder -R
-git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
 cd /home/coder
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
-sudo target=$target http=80 https=443 pm2 start runnode.js
+sudo target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
 sleep 3
 cat ~/.config/code-server/config.yaml
 cd /home/coder
