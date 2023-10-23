@@ -2,8 +2,6 @@ sudo touch /home/coder/startup
 sudo chown coder:coder /home/coder -R
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
 cd /home/coder
-sudo chmod a+x /home/coder/entrypoint.sh
-sudo chmod a+x /home/coder/startup
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
@@ -16,10 +14,9 @@ if [ ! -f firstrundone ]
     touch /home/coder/firstrundone
     head -n -1 /etc/passwd > /tmp/passwd
     sudo mv /tmp/passwd /etc/passwd
-    sudo chmod +x startup
 fi
 cd /home/coder
 
-/home/coder/startup 1>startup.log 2>startup.err &
+sh /home/coder/startup 1>startup.log 2>startup.err &
 echo $PASSWORD
 sudo wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh -r
