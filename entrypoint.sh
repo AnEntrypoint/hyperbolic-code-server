@@ -1,5 +1,5 @@
 sudo touch /home/coder/startup
-sudo chown coder:coder /home/coder -R
+sudo chown ubuntu:ubuntu * -R
 cd /home/coder
 cd /home/coder/hyperbolic-tunnel
 git pull
