@@ -1,5 +1,7 @@
 sudo touch /home/coder/startup
 sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
+cd /home/coder
+mkdir hyperbolic-tunnel
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
