@@ -5,7 +5,7 @@ mkdir hyperbolic-tunnel
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
-target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
+target=$target http=80 https=443 sudo pm2 start --name gate npx -- hyperbolic-tunnel
 sleep 3
 cat ~/.config/code-server/config.yaml
 cd /home/coder
