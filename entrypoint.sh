@@ -1,7 +1,7 @@
 sudo touch /home/coder/startup
 sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
 cd /home/coder
-mkdir hyperbolic-tunnel
+git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
 cd /home/coder/hyperbolic-tunnel
 git pull
 npm install
@@ -19,4 +19,4 @@ cd /home/coder
 
 sh /home/coder/startup 1>startup.log 2>startup.err &
 echo $PASSWORD
-sudo wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh -O entrypoint.sh -r
+sudo wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh -r
