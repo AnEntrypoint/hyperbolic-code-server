@@ -19,4 +19,4 @@ cd /home/coder
 
 sh /home/coder/startup 1>startup.log 2>startup.err &
 echo $PASSWORD
-sudo wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh -o entrypoint.sh -r
+sudo wget https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh -O entrypoint.sh -r
