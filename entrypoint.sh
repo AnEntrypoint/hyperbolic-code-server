@@ -1,13 +1,10 @@
 sudo touch /home/coder/startup
-sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
-cd /home/coder
+cd /root
 git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
-cd /home/coder/hyperbolic-tunnel
+cd /root/hyperbolic-tunnel
 git pull
 npm install
 target=$target http=80 https=443 sudo pm2 start --name gate npx -- hyperbolic-tunnel
-sleep 3
-cat ~/.config/code-server/config.yaml
 cd /home/coder
 if [ ! -f firstrundone ]
     then echo first run
