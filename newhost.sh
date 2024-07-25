@@ -1,5 +1,5 @@
 # INSTALL DOCKER
-
+mkdir coder
 apt-get update
 apt-get install \
     ca-certificates \
