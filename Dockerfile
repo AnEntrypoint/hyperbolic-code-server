@@ -15,6 +15,4 @@ WORKDIR /home/coder
 USER coder
 COPY entrypoint.sh /home/coder/entrypoint.sh
 RUN chmod +x /home/coder/entrypoint.sh
-ENTRYPOINT sh /home/coder/entrypoint.sh; \
-  /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
-    
+ENTRYPOINT sh /home/coder/entrypoint.sh;
