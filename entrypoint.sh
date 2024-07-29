@@ -1,7 +1,12 @@
 #!/bin/sh
 
 # Clone and prepare the hyperbolic-tunnel repository
-git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /root/hyperbolic-tunnel || (cd /root/hyperbolic-tunnel && git pull)
+if [ ! -d "/root/hyperbolic-tunnel" ]; then
+    git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /root/hyperbolic-tunnel
+else
+    cd /root/hyperbolic-tunnel && git pull
+fi
+
 cd /root/hyperbolic-tunnel
 npm install --unsafe-perm
 
@@ -16,8 +21,10 @@ if [ ! -f /root/firstrundone ]; then
 fi
 
 # Ensure the npm cache directory is accessible to the coder user
-mkdir -p /.npm
-chown -R 1001:1001 /.npm
+if [ ! -d "/home/coder/.npm" ]; then
+    mkdir -p /home/coder/.npm
+fi
+chown -R 1001:1001 /home/coder/.npm
 
 # Start the application with PM2
 pm2 start --name gate runnode.js
