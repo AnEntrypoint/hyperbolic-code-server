@@ -1,8 +1,7 @@
 #!/bin/sh
-
 # Create startup file and set ownership
-sudo touch /home/coder/startup
-sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
+touch /home/coder/startup
+chown coder:coder /home/coder/hyperbolic-tunnel/* -R
 
 # Navigate to the project directory
 cd /home/coder
@@ -14,7 +13,7 @@ git pull
 npm install
 
 # Set environment and start the application with PM2
-target=$target http=80 https=443 sudo pm2 start --name gate npx -- hyperbolic-tunnel
+target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
 
 # Wait for the application to start
 sleep 3
@@ -23,8 +22,7 @@ sleep 3
 cat ~/.config/code-server/config.yaml
 
 # Create a marker for the first run
-cd /home/coder
-if [ ! -f firstrundone ]; then 
+if [ ! -f /home/coder/firstrundone ]; then 
     echo "first run"
     touch /home/coder/firstrundone
 fi
