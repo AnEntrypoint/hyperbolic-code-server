@@ -9,7 +9,7 @@ sudo apt-get install -y nodejs python3 build-essential tzdata libcap2-bin wget
 ENV target http://localhost:8080
 setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 
-
+sudo apt install npm
 npm install pm2 -g
 sudo npm install pm2 -g
 
