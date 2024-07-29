@@ -2,10 +2,10 @@
 set -e
 
 # Create startup file and ensure permissions
-touch /home/coder/startup
+touch /home/coder/startup || echo "Failed to create startup file"
 
-# Ensure the hyperbolic-tunnel directory exists and has correct permissions
-mkdir -p /home/coder/hyperbolic-tunnel 
+# Ensure the hyperbolic-tunnel directory exists
+mkdir -p /home/coder/hyperbolic-tunnel
 chown -R coder:coder /home/coder/hyperbolic-tunnel
 
 # Navigate to the project directory
