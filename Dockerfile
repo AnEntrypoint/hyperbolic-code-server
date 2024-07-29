@@ -12,6 +12,7 @@ ENV target http://localhost:8080
 RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 RUN echo "coder:x:1001:1001::/root:/bin/bash" >> /etc/passwd
 WORKDIR /root
+RUN chmod a+rw /root -R
 USER coder
 ENTRYPOINT sudo wget -q -O /root/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh \
     ls \
