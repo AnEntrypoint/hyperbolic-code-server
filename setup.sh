@@ -1,4 +1,3 @@
-mkdir coder
 apt-get update
 apt-get install \
     ca-certificates \
@@ -27,8 +26,10 @@ chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
 echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
-sudo usermod -aG docker ubuntu
-sudo chmod a+rw * -R
 
+sudo usermod -aG docker ubuntu
+
+mkdir coder
+sudo chmod a+rw * -R
 docker compose down
 docker compose up -d
