@@ -11,5 +11,5 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./coder:/home/coder/
-      - ./entrypount.d:/entrypoint.d
+      - ./entrypoint.d:/entrypoint.d
     restart: unless-stopped
