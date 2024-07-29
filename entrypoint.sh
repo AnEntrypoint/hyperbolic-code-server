@@ -27,11 +27,6 @@ cd /root
 if [ ! -f firstrundone ]; then 
     echo "first run"
     touch /root/firstrundone
-   
-    # Edit /etc/passwd to handle duplicates
-    cp /etc/passwd /tmp/passwd
-    awk '!seen[$0]++' /tmp/passwd > /etc/passwd  # Remove duplicate entries
-    rm /tmp/passwd
 fi
 
 # Run the startup script in the background
