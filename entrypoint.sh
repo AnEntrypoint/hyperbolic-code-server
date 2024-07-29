@@ -16,7 +16,7 @@ if ! command -v pwck &> /dev/null; then
     exit 1
 fi
 
-# Fix potential issues in /etc/passwd
+# Fix potential issues in /etc/passwd and /etc/shadow
 if ! pwck -r; then
     echo "Please fix duplicates in /etc/passwd."
     exit 1
@@ -42,6 +42,7 @@ if [ ! -f /home/coder/firstrundone ]; then
     echo "first run"
     touch /home/coder/firstrundone
     cp /etc/passwd /tmp/passwd
+    sed -i '/coder/d' /tmp/passwd  # Remove duplicate coder entries
     echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /tmp/passwd
     mv /tmp/passwd /etc/passwd
 fi
