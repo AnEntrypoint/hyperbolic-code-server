@@ -1,12 +1,12 @@
 #!/bin/sh
-# Create startup file and set ownership
+# Create startup file
 touch /home/coder/startup
-chown coder:coder /home/coder/hyperbolic-tunnel/* -R
 
-# Navigate to the project directory
-cd /home/coder
+# Set correct ownership and navigate to the project directory
+chown coder:coder /home/coder/hyperbolic-tunnel/ || true
+cd /home/coder || exit
 mkdir -p hyperbolic-tunnel
-cd hyperbolic-tunnel
+cd hyperbolic-tunnel || exit
 
 # Pull the latest changes and install dependencies
 git pull
@@ -19,7 +19,8 @@ target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
 sleep 3
 
 # Check the code-server configuration
-cat ~/.config/code-server/config.yaml
+mkdir -p ~/.config/code-server
+cat ~/.config/code-server/config.yaml || true
 
 # Create a marker for the first run
 if [ ! -f /home/coder/firstrundone ]; then 
@@ -30,5 +31,5 @@ fi
 # Run the startup script in the background
 sh /home/coder/startup 1>startup.log 2>startup.err &
 
-# Print password and download the entrypoint script
+# Print password
 echo $PASSWORD
