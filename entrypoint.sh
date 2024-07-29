@@ -1,16 +1,15 @@
 #!/bin/sh
 set -e
 
-# Create startup file with appropriate permissions
+# Create startup file and ensure permissions
 touch /home/coder/startup
 
 # Ensure the hyperbolic-tunnel directory exists and has correct permissions
-mkdir -p /home/coder/hyperbolic-tunnel
-chmod 777 /home/coder/hyperbolic-tunnel
+mkdir -p /home/coder/hyperbolic-tunnel 
+chown -R coder:coder /home/coder/hyperbolic-tunnel
 
 # Navigate to the project directory
-cd /home/coder || exit 1
-cd hyperbolic-tunnel || exit 1
+cd /home/coder/hyperbolic-tunnel || exit 1
 
 # Pull the latest changes if this is a git repository
 if [ -d .git ]; then
