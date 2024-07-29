@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   code-server:
-    image: "almagest/hyperbolic-code-server-${PLATFORM}"
+    image: "codercom/code-server:latest"
     network_mode: host
     environment:
       - TZ=${TZ}
