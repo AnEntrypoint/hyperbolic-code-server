@@ -5,7 +5,7 @@ set_permissions() {
     local dir="$1"
     local user="$2"
     local group="$3"
-    
+
     mkdir -p "$dir"
     chown -R "$user:$group" "$dir"
 }
@@ -16,10 +16,33 @@ if ! command -v pwck &> /dev/null; then
     exit 1
 fi
 
+# Function to fix duplicate entries in /etc/passwd
+fix_duplicates() {
+    local tmp_passwd="/tmp/passwd"
+    cp /etc/passwd "$tmp_passwd"
+    
+    # Create an associative array
+    declare -A user_dict
+
+    # Read through passwd and remove duplicates
+    {
+        while IFS=: read -r user _; do
+            if [[ -n "${user}" && -n "${user_dict[$user]+xxx}" ]]; then
+                echo "Duplicate found: $user"
+            else
+                user_dict["$user"]=1
+                echo "$user" >> "$tmp_passwd"
+            fi
+        done
+    } < "$tmp_passwd"
+    
+    mv "$tmp_passwd" /etc/passwd
+}
+
 # Fix potential issues in /etc/passwd and /etc/shadow
 if ! pwck -r; then
-    echo "Please fix duplicates in /etc/passwd."
-    exit 1
+    echo "Fixing duplicates in /etc/passwd."
+    fix_duplicates
 fi
 
 if ! pwck -r; then
@@ -41,10 +64,7 @@ npm install --unsafe-perm
 if [ ! -f /home/coder/firstrundone ]; then
     echo "first run"
     touch /home/coder/firstrundone
-    cp /etc/passwd /tmp/passwd
-    sed -i '/coder/d' /tmp/passwd  # Remove duplicate coder entries
-    echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /tmp/passwd
-    mv /tmp/passwd /etc/passwd
+    echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
 fi
 
 # Fix permissions for npm and PM2 directories
