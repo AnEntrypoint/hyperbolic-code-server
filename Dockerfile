@@ -10,9 +10,9 @@ RUN npm install -g pm2
 ENV target http://localhost:8080
 RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 RUN echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
+RUN mkdir -p /home/coder/hyperbolic-tunnel && chmod a+rw /home/coder/hyperbolic-tunnel
 WORKDIR /home/coder
-RUN mkdir -p hyperbolic-tunnel && chmod a+rw /home/coder -R
 USER coder
 COPY entrypoint.sh /home/coder/entrypoint.sh
 RUN chmod +x /home/coder/entrypoint.sh
-ENTRYPOINT /home/coder/entrypoint.sh
+ENTRYPOINT ["/home/coder/entrypoint.sh"]
