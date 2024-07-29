@@ -14,5 +14,6 @@ RUN echo "coder:x:1001:1001::/root:/bin/bash" >> /etc/passwd
 WORKDIR /root
 USER coder
 ENTRYPOINT sudo wget -q -O /root/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh \
+    ls \
     sh /root/entrypoint.sh; \
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
