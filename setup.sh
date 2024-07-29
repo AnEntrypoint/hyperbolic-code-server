@@ -29,3 +29,4 @@ swapon /swapfile
 echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 sudo usermod -aG docker ubuntu
 sudo chmod a+rw * -R
+docker compose up -d
