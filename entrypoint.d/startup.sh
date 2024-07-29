@@ -59,3 +59,6 @@ sudo ln -s /home/coder/html /var/www/html
 sudo service nginx restart
 sudo apt install python3-pip -y
 sudo apt install ffmpeg -y
+cd ~/
+sh startup.sh
+sh startup
