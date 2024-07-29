@@ -9,7 +9,6 @@ sudo apt-get install -y nodejs python3 build-essential tzdata libcap2-bin wget
 ENV target http://localhost:8080
 setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 
-git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
 
 npm install pm2 -g
 sudo npm install pm2 -g
@@ -22,6 +21,7 @@ sudo apt install ffmpeg -y
 sudo pip install youtube-dl
 sudo apt install nohup
 
+git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
 cd ~/hyperbolic-tunnel
 npm install
 sudo pm2 start runnode.js --name gate
