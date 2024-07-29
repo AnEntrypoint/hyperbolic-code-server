@@ -1,3 +1,4 @@
+# Dockerfile
 FROM codercom/code-server:latest
 USER root
 RUN apt-get update && apt-get install -y ca-certificates curl gnupg
@@ -12,6 +13,6 @@ RUN echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
 WORKDIR /home/coder
 RUN mkdir -p hyperbolic-tunnel && chmod a+rw /home/coder -R
 USER coder
-ENTRYPOINT wget -q -O /home/coder/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh && \
-    sh /home/coder/entrypoint.sh && \
-    /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
+COPY entrypoint.sh /home/coder/entrypoint.sh
+RUN chmod +x /home/coder/entrypoint.sh
+ENTRYPOINT /home/coder/entrypoint.sh
