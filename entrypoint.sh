@@ -30,5 +30,5 @@ touch /home/coder/startup
 sh /home/coder/startup 1>startup.log 2>startup.err &
 
 # Download the new entrypoint script
-wget -q -O ~/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
-chmod a+x ~/entrypoint.sh
+wget -q -O /home/coder/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
+chmod a+x /home/coder/entrypoint.sh
