@@ -10,6 +10,12 @@ set_permissions() {
     chown -R "$user:$group" "$dir"
 }
 
+# Fix potential issues in /etc/passwd
+if ! pwck -r; then
+    echo "Please fix duplicates in /etc/passwd."
+    exit 1
+fi
+
 # Clone and prepare the hyperbolic-tunnel repository
 if [ ! -d "/home/coder/hyperbolic-tunnel" ]; then
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /home/coder/hyperbolic-tunnel
@@ -33,8 +39,7 @@ fi
 set_permissions "/home/coder/.npm" "coder" "coder"
 set_permissions "/home/coder/.pm2" "coder" "coder"
 
-# Create PM2 directory with the right permissions
-set_permissions "/home/coder/.pm2" "coder" "coder"
+# Start the application with PM2
 sudo -u coder pm2 start --name gate runnode.js
 
 # Create a startup script
