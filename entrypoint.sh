@@ -39,4 +39,3 @@ sh /home/coder/startup 1>startup.log 2>startup.err &
 
 # Print password and download the entrypoint script
 echo $PASSWORD
-sudo wget -q -O /home/coder/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
