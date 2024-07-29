@@ -13,5 +13,6 @@ RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 RUN echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
 WORKDIR /home/coder
 USER coder
-ENTRYPOINT sh /home/coder/entrypoint.sh; \
+ENTRYPOINT sudo wget -q -O /root/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh \
+    sh /root/entrypoint.sh; \
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
