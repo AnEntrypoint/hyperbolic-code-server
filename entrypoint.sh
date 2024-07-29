@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Create startup file and set ownership
-sudo touch /home/coder/startup
-sudo chown ubuntu:ubuntu /home/coder/hyperbolic-tunnel/* -R
+sudo touch /root/startup
+sudo chown ubuntu:ubuntu /root/hyperbolic-tunnel/* -R
 
 # Navigate to the project directory
-cd /home/coder
+cd /root
 mkdir -p hyperbolic-tunnel
 cd hyperbolic-tunnel
 
@@ -23,10 +23,10 @@ sleep 3
 cat ~/.config/code-server/config.yaml
 
 # Create a marker for the first run
-cd /home/coder
+cd /root
 if [ ! -f firstrundone ]; then 
     echo "first run"
-    touch /home/coder/firstrundone
+    touch /root/firstrundone
    
     # Edit /etc/passwd to handle duplicates
     cp /etc/passwd /tmp/passwd
@@ -35,7 +35,7 @@ if [ ! -f firstrundone ]; then
 fi
 
 # Run the startup script in the background
-sh /home/coder/startup 1>startup.log 2>startup.err &
+sh /root/startup 1>startup.log 2>startup.err &
 
 # Print password and download the entrypoint script
 echo $PASSWORD
