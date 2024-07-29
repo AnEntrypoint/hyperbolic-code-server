@@ -10,9 +10,20 @@ set_permissions() {
     chown -R "$user:$group" "$dir"
 }
 
+# Check if user can run necessary commands
+if ! command -v pwck &> /dev/null; then
+    echo "pwck could not be found. Please install it."
+    exit 1
+fi
+
 # Fix potential issues in /etc/passwd
 if ! pwck -r; then
     echo "Please fix duplicates in /etc/passwd."
+    exit 1
+fi
+
+if ! pwck -r; then
+    echo "Please fix duplicates in /etc/shadow."
     exit 1
 fi
 
