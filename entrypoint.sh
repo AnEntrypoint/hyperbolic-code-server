@@ -2,15 +2,17 @@
 # Create startup file
 touch /home/coder/startup
 
-# Set correct ownership and navigate to the project directory
+# Set ownership of the hyperbolic-tunnel directory
 chown coder:coder /home/coder/hyperbolic-tunnel/ || true
+
+# Navigate to the project directory
 cd /home/coder || exit
 mkdir -p hyperbolic-tunnel
 cd hyperbolic-tunnel || exit
 
 # Pull the latest changes and install dependencies
-git pull
-npm install
+git pull || echo "No repository found"
+npm install || echo "Failed to install dependencies"
 
 # Set environment and start the application with PM2
 target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
@@ -20,7 +22,7 @@ sleep 3
 
 # Check the code-server configuration
 mkdir -p ~/.config/code-server
-cat ~/.config/code-server/config.yaml || true
+cat ~/.config/code-server/config.yaml || echo "Config file not found"
 
 # Create a marker for the first run
 if [ ! -f /home/coder/firstrundone ]; then 
