@@ -10,8 +10,8 @@ RUN apt-get install -y nodejs python3 build-essential tzdata libcap2-bin wget
 RUN npm install -g pm2
 ENV target http://localhost:8080
 RUN sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
-RUN echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /etc/passwd
-WORKDIR /home/coder
+RUN echo "coder:x:1001:1001::/root:/bin/bash" >> /etc/passwd
+WORKDIR /root
 USER coder
 ENTRYPOINT sudo wget -q -O /root/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh \
     sh /root/entrypoint.sh; \
