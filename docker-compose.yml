@@ -12,5 +12,5 @@ services:
       - domainname=${SUBDOMAIN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./data:/home/coder/
+      - ./coder:/home/coder/
     restart: unless-stopped
