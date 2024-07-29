@@ -4,7 +4,7 @@
 if [ ! -d "/root/hyperbolic-tunnel" ]; then
     git clone https://github.com/AnEntrypoint/hyperbolic-tunnel /root/hyperbolic-tunnel
 else
-    cd /root/hyperbolic-tunnel && git pull
+    (cd /root/hyperbolic-tunnel && git pull)
 fi
 
 cd /root/hyperbolic-tunnel
@@ -16,15 +16,11 @@ if [ ! -f /root/firstrundone ]; then
     touch /root/firstrundone
     cp /etc/passwd /tmp/passwd
     echo "coder:x:1001:1001::/home/coder:/bin/bash" >> /tmp/passwd
-    chown 1001:1001 /tmp/passwd
     mv /tmp/passwd /etc/passwd
-fi
-
-# Ensure the npm cache directory is accessible to the coder user
-if [ ! -d "/home/coder/.npm" ]; then
+    # Ensure that the coder user can access npm's cache directory
     mkdir -p /home/coder/.npm
+    chown -R coder:coder /home/coder/.npm
 fi
-chown -R 1001:1001 /home/coder/.npm
 
 # Start the application with PM2
 pm2 start --name gate runnode.js
