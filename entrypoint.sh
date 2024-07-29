@@ -33,7 +33,8 @@ fi
 set_permissions "/home/coder/.npm" "coder" "coder"
 set_permissions "/home/coder/.pm2" "coder" "coder"
 
-# Start the application with PM2
+# Create PM2 directory with the right permissions
+set_permissions "/home/coder/.pm2" "coder" "coder"
 sudo -u coder pm2 start --name gate runnode.js
 
 # Create a startup script
@@ -42,4 +43,4 @@ sudo -u coder sh /home/coder/startup 1>startup.log 2>startup.err &
 
 # Download the new entrypoint script
 wget -q -O /home/coder/entrypoint.sh https://raw.githubusercontent.com/AnEntrypoint/hyperbolic-code-server/main/entrypoint.sh
-chmod a+x /home/coder/entrypoint.sh
+sudo -u coder chmod a+x /home/coder/entrypoint.sh
