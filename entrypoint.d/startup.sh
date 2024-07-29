@@ -4,10 +4,8 @@ sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
 sudo curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-sudo apt install npm -y
 sudo apt-get update -y 
-
-sudo apt-get install -y nodejs python3 build-essential tzdata libcap2-bin wget
+sudo apt-get install -y npm nodejs python3 build-essential tzdata libcap2-bin wget
 ENV target http://localhost:8080
 setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
 
