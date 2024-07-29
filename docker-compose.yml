@@ -2,12 +2,15 @@ version: '3.8'
 
 services:
   code-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: "almagest/hyperbolic-code-server-${PLATFORM}"
     network_mode: host
     environment:
-      - ENV_VAR=value
+      - TZ=${TZ}
+      - email=${EMAIL}
+      - password=${PASSWORD}
+      - DOCKER_USER=${USER}
+      - domainname=${SUBDOMAIN}
     volumes:
-      - ./data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/home/coder/
     restart: unless-stopped
