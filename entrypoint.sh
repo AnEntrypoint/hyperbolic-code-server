@@ -1,22 +1,24 @@
 #!/bin/sh
 set -e
 
-# Create startup file and set ownership of hyperbolic-tunnel directory
-touch /home/coder/startup || echo "Failed to create startup file"
-chown coder:coder /home/coder/hyperbolic-tunnel/ || true
+# Create startup file with appropriate permissions
+touch /home/coder/startup
+
+# Ensure the hyperbolic-tunnel directory exists and has correct permissions
+mkdir -p /home/coder/hyperbolic-tunnel
+chmod 777 /home/coder/hyperbolic-tunnel
 
 # Navigate to the project directory
 cd /home/coder || exit 1
-mkdir -p hyperbolic-tunnel
 cd hyperbolic-tunnel || exit 1
 
-# Pull the latest changes and install dependencies
+# Pull the latest changes if this is a git repository
 if [ -d .git ]; then
-    git pull || echo "No repository found"
+  git pull || echo "No repository found"
 fi
 npm install || echo "Failed to install dependencies"
 
-# Set environment and start the application with PM2
+# Start the application with PM2
 target=$target http=80 https=443 pm2 start --name gate npx -- hyperbolic-tunnel
 
 # Wait for the application to start
