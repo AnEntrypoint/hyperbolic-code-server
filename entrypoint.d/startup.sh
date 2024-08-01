@@ -33,7 +33,7 @@
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
     sudo apt update
     sudo apt install caddy
-    sudo pm2 start --name caddy caddy -- run --config /path/to/Caddyfile
+    sudo pm2 start --name caddy caddy -- run --config ~/Caddyfile
 
     sudo apt install -y curl git python python3-pip build-essential redis openssl libssl-dev pkg-config
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
