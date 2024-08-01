@@ -22,18 +22,18 @@
     sudo pip install youtube-dl
     sudo apt install nohup
     
-    # git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
-    # cd ~/hyperbolic-tunnel
-    # git pull
-    # npm install
-    # sudo pm2 start runnode.js --name gate
+    git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
+    cd ~/hyperbolic-tunnel
+    git pull
+    npm install
+    sudo pm2 start runnode.js --name gate
     
     sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
     sudo apt update
     sudo apt install caddy
-    sudo pm2 start --name caddy caddy -- run --config ~/Caddyfile
+    sudo pm2 start --name caddy caddy -- run --config /home/coder/Caddyfile
 
     sudo apt install -y curl git python python3-pip build-essential redis openssl libssl-dev pkg-config
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
