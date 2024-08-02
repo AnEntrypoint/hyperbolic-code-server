@@ -9,7 +9,8 @@
     sudo apt-get install -y npm nodejs python3 build-essential tzdata libcap2-bin wget
     ENV target http://localhost:8080
     setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
-    
+    sudo dpkg --configure -a
+
     sudo apt install npm
     npm install pm2 -g
     sudo npm install pm2 -g
@@ -67,6 +68,7 @@
     sudo service nginx restart
     sudo apt install python3-pip -y
     sudo apt install ffmpeg -y
+    sudo dpkg --configure -a
     cd ~/
     sh startup.sh
     sh startup
