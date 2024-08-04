@@ -23,8 +23,8 @@
     sudo pip install youtube-dl
     sudo apt install nohup
     
-    git clone https://github.com/AnEntrypoint/hyperbolic-tunnel
-    cd ~/hyperbolic-tunnel
+    git clone https://github.com/AnEntrypoint/hyperbolic-dns-client
+    cd ~/hyperbolic-dns-client
     git pull
     npm install
     sudo pm2 start runnode.js --name gate
