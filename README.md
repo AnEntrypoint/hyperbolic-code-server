@@ -8,6 +8,6 @@ run or check out the end of setup.sh
 
 ```
 git clone https://github.com/AnEntrypoint/hyperbolic-code-server.git
-cd hyeprbolic-code-server
+cd hyperbolic-code-server
 docker compose up -d
 ```
